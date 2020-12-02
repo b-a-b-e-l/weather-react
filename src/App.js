@@ -7,9 +7,17 @@ function App() {
       <header className="App-header">
         <h1>React Weather</h1>
       </header>
-      <div className="contains-weather">
-        <Weather />
-      </div>
+      <body>
+        <div className="contains-weather">
+          <Weather />
+        </div>
+      </body>
+      <footer>
+        <a href="https://github.com/b-a-b-e-l/weather-react">
+          Open Source Code
+        </a>{" "}
+        by Belén Bednarski{" "}
+      </footer>
     </div>
   );
 }

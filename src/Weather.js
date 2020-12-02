@@ -9,7 +9,9 @@ export default function Weather() {
 
   function showTemperature(response) {
     setLoaded(true);
+    console.log(response.data);
     setWeather({
+      name: response.data.name,
       temperature: Math.round(response.data.main.temp),
       sky: response.data.weather[0].main,
       humidity: response.data.main.humidity,
@@ -42,7 +44,7 @@ export default function Weather() {
     return (
       <div>
         {form}
-        <h3>{city} </h3>
+        <h3>{weather.name}</h3>
         <p> Temperature: {weather.temperature}°C </p>
         <p> Humidity: {weather.humidity}%</p>
         <p> Wind: {weather.wind}km/h</p>

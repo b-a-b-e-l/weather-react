@@ -8,12 +8,43 @@ h1 {
   font-family: "Courier New", Courier, monospace;
   display: block;
   margin: 0 auto;
-  padding: 30px 0 30px 30px;
+  padding: 30px 0;
   max-width: 60%;
+  background-color: #e1e3f3;
+}
+
+@media only screen and (max-width: 888px) {
+  .contains-weather {
+    max-width: 100%;
+  }
+  .forecast-list {
+    max-height: 77px;
+  }
+  .forecast-list h6 {
+    text-align: center !important;
+    font-size: 24px !important;
+    font-weight: 100 !important;
+  }
+}
+@media only screen and (min-width: 888px) {
+  .forecast-list h6 {
+    margin-top: 60px !important;
+  }
 }
 footer {
   font-size: 14px;
   color: #5e689f;
   font-family: "Courier New", Courier, monospace;
   text-align: center;
+}
+body {
+  background-color: #e1e3f3;
+}
+
+.container {
+  padding: 3px;
+}
+
+.intro-title {
+  margin-top: 10px;
 }

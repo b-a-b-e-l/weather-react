@@ -1,4 +1,117 @@
-.search-submit,
-form {
+.day-today {
+  font-size: 15px;
+  text-align: center;
+}
+.day-1 h6,
+.day-2 h6,
+.day-3 h6 {
+  text-align: right;
   margin: 0 auto;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+h4 {
+  font-size: 27px;
+}
+.forecast-list {
+  padding: 15px;
+  border-radius: 9px;
+  height: 159.104px;
+}
+
+.day-1 {
+  background-color: #abadd7;
+  color: #fff;
+}
+.day-2 {
+  background-color: #ee9793;
+  color: #fff;
+}
+.day-3 {
+  background-color: #f4b7a7;
+  color: #fff;
+}
+.current-weather-card {
+  background-color: #6068a3;
+  color: #fff;
+  border-radius: 9px;
+}
+
+.city {
+  font-size: 38px;
+  padding: 10px;
+  color: #f4b7a7;
+}
+
+.temp-now {
+  text-align: center;
+  color: #f9e5e1;
+  font-size: 42px;
+}
+.weather-conditions {
+  list-style-type: none;
+  padding-inline-start: 0 !important;
+  font-size: 15px;
+}
+
+.sky-description {
+  margin-top: 60%;
+}
+.input-group {
+  margin-bottom: 8px;
+}
+.city-input {
+  color: #ee9793;
+  border-color: #abadd7 !important;
+  font-size: 15px !important;
+}
+.city-input:focus {
+  box-shadow: #abadd7 0px 0px 0px 3px !important;
+  border-color: #abadd7;
+}
+.search-button {
+  color: #6068a3;
+  border-color: #abadd7;
+  font-size: 15px !important;
+}
+.search-button:hover {
+  background-color: #ee9793;
+  color: #f9e5e1;
+  border-color: #f4b7a7;
+}
+.search-button:active {
+  background-color: #ee9793;
+  color: #f9e5e1;
+  border-color: #f4b7a7;
+  box-shadow: #f4b7a7 0px 0px 0px 3px !important;
+}
+.search-button:focus {
+  background-color: #ee9793 !important;
+  color: #f9e5e1 !important;
+  border-color: #f4b7a7 !important;
+  box-shadow: #f4b7a7 0px 0px 0px 3px !important;
+}
+.location-button {
+  color: #6068a3;
+  border-color: #abadd7;
+  font-size: 15px !important;
+}
+.location-button:hover {
+  background-color: #ee9793;
+  color: #f9e5e1;
+  border-color: #f4b7a7;
+}
+.location-button:active {
+  background-color: #ee9793 !important;
+  color: #f9e5e1 !important;
+  border-color: #f4b7a7 !important;
+  box-shadow: #f4b7a7 0px 0px 0px 3px !important;
+}
+.location-button:focus {
+  background-color: #ee9793 !important;
+  color: #f9e5e1 !important;
+  border-color: #f4b7a7 !important;
+  box-shadow: #f4b7a7 0px 0px 0px 3px !important;
 }

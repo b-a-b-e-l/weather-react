@@ -4,20 +4,27 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>React Weather</h1>
-      </header>
-      <body>
+      <div className="container">
+        <header className="App-header">
+          <h1 className="intro-title">How's the weather in...</h1>
+        </header>
+
         <div className="contains-weather">
           <Weather />
         </div>
-      </body>
-      <footer>
-        <a href="https://github.com/b-a-b-e-l/weather-react">
-          Open Source Code
-        </a>{" "}
-        by Belén Bednarski{" "}
-      </footer>
+
+        <footer>
+          <p className="footer-link">
+            <a
+              href="https://github.com/b-a-b-e-l/weather-react"
+              target="_blank"
+            >
+              Open Source Code{" "}
+            </a>
+            by Belén Bednarski
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }

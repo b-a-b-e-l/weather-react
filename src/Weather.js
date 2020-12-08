@@ -1,7 +1,6 @@
-import React, from "react";
+import React from "react";
 
 import "./Weather.css";
-
 
 export default function Weather() {
   const apiKey = "0096e74278950fd9325fbc33e0f38fed";

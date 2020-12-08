@@ -115,3 +115,7 @@ h4 {
   border-color: #f4b7a7 !important;
   box-shadow: #f4b7a7 0px 0px 0px 3px !important;
 }
+.celcius {
+  margin: 2px;
+  font-size: 26px;
+}

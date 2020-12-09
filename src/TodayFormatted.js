@@ -1,6 +1,12 @@
 export default function TodayFormatted(props) {
-  //new Date(props.date);
-  //console.log(props.date);
+  console.log(props.date);
+  let day = props.date.getDay();
+  let hours = props.date.getHours();
+  let minutes = props.date.getMinutes();
 
-  return "Sunday 03:00";
+  return (
+    <div>
+      {day} {hours}:{minutes}
+    </div>
+  );
 }

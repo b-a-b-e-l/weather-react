@@ -9,8 +9,8 @@ export default function Weather() {
   function getLocationTime(response) {
     console.log(response.data);
     setTimeData(response.data.formatted);
-    console.log(timeData);
   }
+  console.log(timeData);
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({

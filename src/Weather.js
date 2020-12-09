@@ -5,9 +5,11 @@ import "./Weather.css";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
-
+  const [timeData, setTimeData] = useState(null);
   function getLocationTime(response) {
     console.log(response.data);
+    setTimeData(response.data.formatted);
+    console.log(timeData);
   }
   function handleResponse(response) {
     console.log(response.data);
@@ -18,11 +20,9 @@ export default function Weather() {
       sky: response.data.weather.main,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      lat: response.data.coord.lat,
-      lon: response.data.coord.lon,
     });
-    let lat = weatherData.lat;
-    let lon = weatherData.lon;
+    let lat = response.data.coord.lat;
+    let lon = response.data.coord.lon;
     let timeDbKey = "S4RXUE2ZUA4K";
     let timeDbUrl = `https://api.timezonedb.com/v2.1/get-time-zone?key=${timeDbKey}&format=json&by=position&lat=${lat}&lng=${lon}`;
     axios.get(`${timeDbUrl}`).then(getLocationTime);
@@ -57,7 +57,7 @@ export default function Weather() {
           <div className="col-sm current-weather-card">
             <h1 className="city">{weatherData.city}</h1>
             <p className="day-today">
-              <TodayFormatted />
+              <TodayFormatted date={timeData} />
             </p>
             <h2 className="temp-now">
               {weatherData.temperatureNow}

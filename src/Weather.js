@@ -8,7 +8,7 @@ export default function Weather() {
   const [timeData, setTimeData] = useState(null);
   function getLocationTime(response) {
     console.log(response.data);
-    setTimeData(response.data.formatted);
+    setTimeData(new Date(response.data.formatted));
   }
   console.log(timeData);
   function handleResponse(response) {

@@ -4,7 +4,7 @@ import TodayFormatted from "./TodayFormatted";
 import "./Weather.css";
 
 export default function Weather() {
-  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [weatherData, setWeatherData] = useState(null);
   const [timeData, setTimeData] = useState(null);
   const [ready, setReady] = useState(false);
   function getLocationTime(response) {
@@ -15,7 +15,6 @@ export default function Weather() {
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
-      ready: true,
       city: response.data.name,
       temperatureNow: Math.round(response.data.main.temp),
       sky: response.data.weather[0].main,

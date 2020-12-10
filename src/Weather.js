@@ -6,9 +6,10 @@ import "./Weather.css";
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [timeData, setTimeData] = useState(null);
+  const [ready, setReady] = useState(false);
   function getLocationTime(response) {
-    console.log(response.data);
-    setTimeData(new Date(response.data.timestamp * 1000));
+    setTimeData(new Date(response.data.formatted));
+    setReady(true);
   }
   console.log(timeData);
   function handleResponse(response) {
@@ -17,7 +18,7 @@ export default function Weather() {
       ready: true,
       city: response.data.name,
       temperatureNow: Math.round(response.data.main.temp),
-      sky: response.data.weather.main,
+      sky: response.data.weather[0].main,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
     });
@@ -28,7 +29,7 @@ export default function Weather() {
     axios.get(`${timeDbUrl}`).then(getLocationTime);
   }
 
-  if (weatherData.ready) {
+  if (ready) {
     return (
       <div className="container">
         <div className="input-group w-100">
@@ -96,7 +97,7 @@ export default function Weather() {
     );
   } else {
     const apiKey = "0096e74278950fd9325fbc33e0f38fed";
-    let city = "London";
+    let city = "Tokyo";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 

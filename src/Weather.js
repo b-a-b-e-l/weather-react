@@ -2,24 +2,26 @@ import React, { useState } from "react";
 import axios from "axios";
 import TodayFormatted from "./TodayFormatted";
 import "./Weather.css";
-
-export default function Weather() {
-  const [weatherData, setWeatherData] = useState(null);
-  const [timeData, setTimeData] = useState(null);
-  const [ready, setReady] = useState(false);
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [timeData, setTimeData] = useState(new Date());
+  //const [city, setCity];
   function getLocationTime(response) {
     setTimeData(new Date(response.data.formatted));
-    setReady(true);
   }
   console.log(timeData);
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
+      ready: true,
       city: response.data.name,
+      country: response.data.sys.country,
       temperatureNow: Math.round(response.data.main.temp),
       sky: response.data.weather[0].main,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      maxtemp: Math.round(response.data.main.temp_max),
+      mintemp: Math.round(response.data.main.temp_min),
     });
     let lat = response.data.coord.lat;
     let lon = response.data.coord.lon;
@@ -28,34 +30,44 @@ export default function Weather() {
     axios.get(`${timeDbUrl}`).then(getLocationTime);
   }
 
-  if (ready) {
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  function handleCityChange(event) {}
+  if (weatherData.ready) {
     return (
       <div className="container">
-        <div className="input-group w-100">
-          <input
-            type="text"
-            className="form-control city-input"
-            placeholder="Enter a City. . ."
-            aria-describedby="button-addon4"
-          />
-          <div className="input-group-append  " id="button-addon4">
-            <button
-              className="btn btn-outline-secondary search-button"
-              type="submit"
-            >
-              Search!
-            </button>
-            <button
-              className="btn btn-outline-secondary location-button"
-              type="button"
-            >
-              My Location!
-            </button>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group w-100">
+            <input
+              type="text"
+              className="form-control city-input"
+              placeholder="Enter a City. . ."
+              aria-describedby="button-addon4"
+              onChange={handleCityChange}
+            />
+            <div className="input-group-append  " id="button-addon4">
+              <button
+                className="btn btn-outline-secondary search-button"
+                type="submit"
+              >
+                Search!
+              </button>
+              <button
+                className="btn btn-outline-secondary location-button"
+                type="button"
+              >
+                My Location!
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
         <div className="row">
           <div className="col-sm current-weather-card">
-            <h1 className="city">{weatherData.city}</h1>
+            <h1 className="city">
+              {props.defaultCity},{weatherData.country}
+            </h1>
             <p className="day-today">
               <TodayFormatted date={timeData} />
             </p>
@@ -63,12 +75,14 @@ export default function Weather() {
               {weatherData.temperatureNow}
               <span className="celcius">°C</span>
             </h2>
-
             <h3 className="sky-description">{weatherData.sky}</h3>
             <ul className="weather-conditions">
-              <li>Sunrise: 06:01</li>
-              <li>Humidity:{weatherData.humidity}%</li>
-              <li>Wind: {weatherData.wind}km/h</li>
+              <li>
+                Today: Max: {weatherData.maxtemp}°C | Min: {weatherData.mintemp}
+                °C
+              </li>
+              <li>Humidity:{weatherData.humidity} %</li>
+              <li>Wind: {weatherData.wind} km/h</li>
             </ul>
           </div>
           <div className="col-sm forecast-card">
@@ -96,10 +110,8 @@ export default function Weather() {
     );
   } else {
     const apiKey = "0096e74278950fd9325fbc33e0f38fed";
-    let city = "Tokyo";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-
     return "Loading...";
   }
 }

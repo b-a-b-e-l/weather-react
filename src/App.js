@@ -10,7 +10,7 @@ function App() {
         </header>
 
         <div className="contains-weather">
-          <Weather />
+          <Weather defaultCity="Amsterdam" />
         </div>
 
         <footer>

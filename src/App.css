@@ -14,6 +14,9 @@ h1 {
 }
 
 @media only screen and (max-width: 888px) {
+  .city {
+    margin: 0 auto;
+  }
   .contains-weather {
     max-width: 100%;
   }

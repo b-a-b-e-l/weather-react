@@ -1,15 +1,16 @@
 import React from "react";
 import TodayFormatted from "./TodayFormatted";
 import WeatherIcon from "./WeatherIcon";
+import DynamicFont from "react-dynamic-font";
 
 export default function WeatherInfo(props) {
   return (
     <div>
       <div className="row">
         <div className="col-sm current-weather-card">
-          <h1 className="city">
-            {props.data.city},{props.data.country}
-          </h1>
+          <div className="city">
+            <DynamicFont content={props.data.city} />
+          </div>
           <p className="day-today">
             <TodayFormatted date={props.time} />
           </p>
@@ -17,8 +18,8 @@ export default function WeatherInfo(props) {
             {props.data.temperatureNow}
             <span className="celcius">°C</span>
           </h2>
-          <div>
-            <WeatherIcon code="props.data.icon" alt="props.data.sky" />
+          <div className="current-icon-container">
+            <WeatherIcon code={props.data.icon} alt={props.data.sky} />
           </div>
           <h3 className="sky-description">{props.data.sky}</h3>
           <ul className="weather-conditions">
@@ -29,7 +30,7 @@ export default function WeatherInfo(props) {
                 °C
               </strong>
             </li>
-            <li>Humidity:{props.data.humidity} %</li>
+            <li>Humidity: {props.data.humidity} %</li>
             <li>Wind: {props.data.wind} km/h</li>
           </ul>
         </div>

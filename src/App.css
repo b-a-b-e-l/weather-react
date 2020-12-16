@@ -21,7 +21,8 @@ h1 {
     max-width: 100%;
   }
   .forecast-list {
-    max-height: 77px;
+    padding: 8px 15px 8px 15px !important;
+    max-height: 177px;
   }
   .forecast-list h6 {
     text-align: center !important;
@@ -31,7 +32,8 @@ h1 {
 }
 @media only screen and (min-width: 888px) {
   .forecast-list h6 {
-    margin-top: 60px !important;
+    margin-top: 2px !important;
+    font-size: 22px !important;
   }
 }
 footer {

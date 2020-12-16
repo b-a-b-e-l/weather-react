@@ -8,11 +8,11 @@ export default function WeatherInfo(props) {
   return (
     <div>
       <div className="city">
-        <DynamicFont content={props.data.city} />
+        <DynamicFont content={props.data.fullcity} />
       </div>
-      <p className="day-today">
+      <div className="day-today">
         <TodayFormatted date={props.time} />
-      </p>
+      </div>
       <div>
         <WeatherTemperature celsius={props.data.temperatureNow} />
       </div>

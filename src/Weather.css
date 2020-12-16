@@ -13,8 +13,8 @@
   line-height: 24px;
 }
 
-h4 {
-  font-size: 27px;
+.forecast-list h4 {
+  font-size: 25px;
 }
 .forecast-list {
   padding: 15px;
@@ -143,4 +143,11 @@ h4 {
 }
 .current-icon-container {
   margin-bottom: 10%;
+  margin-top: 5%;
+}
+
+.forecasticon {
+  display: block;
+  margin: 0 auto;
+  max-height: 77px;
 }

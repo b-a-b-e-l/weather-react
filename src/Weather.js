@@ -11,12 +11,12 @@ export default function Weather(props) {
   function getLocationTime(response) {
     setTimeData(new Date(response.data.formatted));
   }
-  console.log(timeData);
+
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
-      city: response.data.name + "," + response.data.sys.country,
+      fullcity: response.data.name + "," + response.data.sys.country,
+      city: response.data.name,
       temperatureNow: Math.round(response.data.main.temp),
       sky: response.data.weather[0].main,
       humidity: response.data.main.humidity,
@@ -78,7 +78,7 @@ export default function Weather(props) {
             <WeatherInfo data={weatherData} time={timeData} />
           </div>
           <div className="col-sm forecast-card">
-            <WeatherForecast />
+            <WeatherForecast city={weatherData.city} />
           </div>
         </div>
       </div>

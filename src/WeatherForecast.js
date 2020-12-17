@@ -7,11 +7,17 @@ export default function WeatherForecast(props) {
   const [forecast, setForecast] = useState(null);
 
   function handleForecast(response) {
+    console.log(response.data);
     setForecast(response.data);
     setLoaded(true);
+    let forecastfullcity = forecast.city.name + "," + forecast.city.country;
+    console.log(forecastfullcity);
   }
 
-  if (loaded && props.city === forecast.city.name) {
+  if (
+    loaded &&
+    props.city === forecast.city.name + "," + forecast.city.country
+  ) {
     return (
       <div>
         <div className="row">

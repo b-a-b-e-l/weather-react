@@ -78,7 +78,7 @@ export default function Weather(props) {
             <WeatherInfo data={weatherData} time={timeData} />
           </div>
           <div className="col-sm forecast-card">
-            <WeatherForecast city={weatherData.city} />
+            <WeatherForecast city={weatherData.fullcity} />
           </div>
         </div>
       </div>

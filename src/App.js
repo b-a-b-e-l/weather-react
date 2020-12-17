@@ -23,6 +23,14 @@ function App() {
               Open Source Code{" "}
             </a>
             by Belén Bednarski
+            <a
+              href="https://adoring-shannon-e3bd46.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              Hosted on Netlify
+            </a>
           </p>
         </footer>
       </div>

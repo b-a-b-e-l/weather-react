@@ -10,8 +10,6 @@ export default function WeatherForecast(props) {
     console.log(response.data);
     setForecast(response.data);
     setLoaded(true);
-    let forecastfullcity = forecast.city.name + "," + forecast.city.country;
-    console.log(forecastfullcity);
   }
 
   if (

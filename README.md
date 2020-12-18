@@ -1,1 +1,1 @@
-https://adoring-shannon-e3bd46.netlify.app/
+http://tiny.cc/react-weather

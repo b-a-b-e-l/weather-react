@@ -14,7 +14,8 @@ export default function WeatherForecast(props) {
 
   if (
     loaded &&
-    props.city === forecast.city.name + "," + forecast.city.country
+    props.latitude === forecast.city.coord.lat &&
+    props.longitude === forecast.city.coord.lon
   ) {
     return (
       <div>
@@ -37,7 +38,7 @@ export default function WeatherForecast(props) {
     );
   } else {
     const apiKey = "0096e74278950fd9325fbc33e0f38fed";
-    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
+    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${props.latitude}&lon=${props.longitude}&appid=${apiKey}&units=metric`;
     axios.get(forecastUrl).then(handleForecast);
 
     return "loading. . . ";

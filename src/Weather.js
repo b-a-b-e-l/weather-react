@@ -15,6 +15,8 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
       fullcity: response.data.name + "," + response.data.sys.country,
       city: response.data.name,
       temperatureNow: Math.round(response.data.main.temp),
@@ -90,7 +92,10 @@ export default function Weather(props) {
             <WeatherInfo data={weatherData} time={timeData} />
           </div>
           <div className="col-sm forecast-card">
-            <WeatherForecast city={weatherData.fullcity} />
+            <WeatherForecast
+              latitude={weatherData.lat}
+              longitude={weatherData.lon}
+            />
           </div>
         </div>
       </div>

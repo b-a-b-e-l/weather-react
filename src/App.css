@@ -18,16 +18,37 @@ h1 {
     margin: 0 auto;
   }
   .contains-weather {
+    margin: 0 auto;
     max-width: 100%;
+  }
+  .container {
+    padding: 0 !important;
+    margin: 0 auto;
   }
   .forecast-list {
     padding: 8px 15px 8px 15px !important;
     max-height: 177px;
   }
   .forecast-list h6 {
+    margin-top: 10px !important;
     text-align: center !important;
     font-size: 24px !important;
     font-weight: 100 !important;
+  }
+  .forecast-list h4 {
+    margin-bottom: 1px !important;
+  }
+  .sky-description,
+  .weather-conditions {
+    margin-left: 8px;
+  }
+  .day-1,
+  .day-2,
+  .day-3 {
+    margin-left: 9px;
+  }
+  html {
+    overflow-x: hidden !important;
   }
 }
 @media only screen and (min-width: 888px) {
@@ -52,10 +73,6 @@ footer a:hover {
 }
 body {
   background-color: #e1e3f3;
-}
-
-.container {
-  padding: 3px;
 }
 
 .intro-title {

@@ -22,7 +22,7 @@ export default function Weather(props) {
       temperatureNow: Math.round(response.data.main.temp),
       sky: response.data.weather[0].main,
       humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
+      wind: Math.round(response.data.wind.speed * 3.6),
       icon: response.data.weather[0].icon,
       maxtemp: Math.round(response.data.main.temp_max),
       mintemp: Math.round(response.data.main.temp_min),
